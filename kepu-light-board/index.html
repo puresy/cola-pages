@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>2026"科普之光"30天展播看板</title>
+<title>2026"科普之光"30天展播仪表盘</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -15,14 +15,37 @@
   .head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
   .title { font-size: 30px; font-weight: 800; letter-spacing: 1px; }
   .title .en { font-size: 14px; font-weight: 400; color: #7fa8e0; margin-left: 10px; letter-spacing: 2px; }
-  .updated { font-size: 14px; color: #9db8e6; }
-  .sub { font-size: 14px; color: #7fa8e0; margin-bottom: 26px; }
+  .updated { font-size: 13px; color: #9db8e6; text-align: right; }
+  .sub { font-size: 14px; color: #7fa8e0; margin-bottom: 24px; }
 
+  .section { font-size: 16px; font-weight: 700; color: #6cc8ff; margin: 30px 0 14px; padding-left: 10px; border-left: 4px solid #6cc8ff; }
+
+  /* KPI 卡片 */
   .kpis { display: flex; gap: 14px; margin-bottom: 24px; }
   .kpi { flex: 1; background: #12264d; border-radius: 12px; padding: 16px 20px; border: 1px solid #1e3a6e; }
   .kpi .num { font-size: 30px; font-weight: 800; color: #6cc8ff; }
   .kpi .label { font-size: 12.5px; color: #9db8e6; margin-top: 5px; }
+  .kpi.live .num { color: #ff9f43; }
+  .kpi.topic .num { color: #2ecc8f; }
+  .kpi.media .num { color: #e15fbf; }
 
+  /* 柱状图 */
+  .chart { display: flex; align-items: flex-end; gap: 14px; background: #12264d; border: 1px solid #1e3a6e; border-radius: 12px; padding: 22px 24px 16px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .bar-val { font-size: 12px; font-weight: 700; color: #eaf2ff; }
+  .bar { width: 100%; max-width: 52px; background: linear-gradient(180deg, #6cc8ff, #2b6fd6); border-radius: 4px 4px 0 0; }
+  .bar-label { font-size: 12px; color: #9db8e6; }
+  .chart-note { font-size: 11.5px; color: #6d86ac; margin-top: 8px; text-align: center; }
+
+  /* 话题条 */
+  .topics { display: flex; flex-direction: column; gap: 12px; background: #12264d; border: 1px solid #1e3a6e; border-radius: 12px; padding: 18px 24px; }
+  .topic-row { display: flex; align-items: center; gap: 14px; }
+  .topic-name { width: 150px; font-size: 13.5px; color: #eaf2ff; font-weight: 700; text-align: right; }
+  .topic-track { flex: 1; height: 18px; background: #1a3260; border-radius: 9px; overflow: hidden; }
+  .topic-fill { height: 100%; background: linear-gradient(90deg, #2ecc8f, #6cc8ff); border-radius: 9px; }
+  .topic-val { width: 100px; font-size: 13px; color: #6cc8ff; font-weight: 700; }
+
+  /* 图例 */
   .legend { display: flex; gap: 20px; font-size: 13px; color: #b9cff2; margin-bottom: 14px; align-items: center; }
   .legend .dot { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
   .dot.full { background: #2ecc8f; }
@@ -63,16 +86,25 @@
   }
   .cell.blank { background: transparent; border: 1px dashed #1e3a6e; opacity: .4; }
 
-  .foot { margin-top: 20px; font-size: 12px; color: #6d86ac; }
+  .foot { margin-top: 22px; font-size: 12px; color: #6d86ac; }
 </style>
 </head>
 <body>
   <div class="head">
-    <div class="title">2026"科普之光"30天展播看板<span class="en">KEPU LIGHT · 30 DAYS</span></div>
+    <div class="title">2026"科普之光"30天展播仪表盘<span class="en">KEPU LIGHT · 30 DAYS</span></div>
     <div class="updated" id="updated"></div>
   </div>
-  <div class="sub">每天 14:00 开播 · 数据源：百度网盘「2026科普之光展播视频文件」成片时长（按天）</div>
+  <div class="sub">每天 14:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据</div>
 
+  <!-- 播出数据 -->
+  <div class="section">播出数据</div>
+  <div class="kpis" id="bKpis"></div>
+  <div class="chart" id="chart"></div>
+  <div class="chart-note" id="chartNote"></div>
+  <div class="topics" id="topics"></div>
+
+  <!-- 排播进度 -->
+  <div class="section">排播进度（按天）</div>
   <div class="kpis" id="kpis"></div>
   <div class="legend">
     <span><i class="dot full"></i>完整已审</span>
@@ -81,23 +113,54 @@
     <span><i class="dot empty"></i>未上传</span>
     <span class="holiday">🏮 中秋假期 9/25–9/27</span>
   </div>
-
   <div class="weekhead">
     <div>周一</div><div>周二</div><div>周三</div><div>周四</div><div>周五</div><div>周六</div><div>周日</div>
   </div>
   <div id="weeks"></div>
-  <div class="foot">时长按网盘 duration 字段精确统计 · 每天中午自动更新</div>
+  <div class="foot">排播时长按网盘 video_duration 毫秒精确统计 · 每天中午自动更新</div>
 
 <script src="data.js"></script>
+<script src="broadcast.js"></script>
 <script>
   const D = window.DASHBOARD_DATA;
-  document.getElementById('updated').textContent = '更新于 ' + D.updatedAt;
+  const B = window.BROADCAST_DATA;
+
+  document.getElementById('updated').innerHTML =
+    '排播更新 ' + D.updatedAt + '<br>播出数据 ' + B.asOf;
 
   function hms(s) {
     const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
     return h + ':' + String(m).padStart(2, '0') + ':' + String(ss).padStart(2, '0');
   }
 
+  // ===== 播出数据 =====
+  document.getElementById('bKpis').innerHTML =
+    '<div class="kpi live"><div class="num">' + B.totals.live + '</div><div class="label">累计直播在线观看</div></div>' +
+    '<div class="kpi topic"><div class="num">' + B.totals.topic + '</div><div class="label">话题累计传播量</div></div>' +
+    '<div class="kpi media"><div class="num">' + B.totals.media + '</div><div class="label">新媒体累计总传播量</div></div>';
+
+  const maxViews = Math.max.apply(null, B.daily.map(x => x.views));
+  document.getElementById('chart').innerHTML = B.daily.map(x => {
+    const h = Math.round(x.views / maxViews * 100);
+    return '<div class="bar-col">' +
+      '<div class="bar-val">' + x.views + '万</div>' +
+      '<div class="bar" style="height:' + h + 'px"></div>' +
+      '<div class="bar-label">' + x.d + '</div>' +
+      '</div>';
+  }).join('');
+  document.getElementById('chartNote').textContent = '每日直播在线观看人次（万）· ' + B.asOf;
+
+  const maxTopic = Math.max.apply(null, B.topics.map(x => x.views));
+  document.getElementById('topics').innerHTML = B.topics.map(x => {
+    const w = Math.round(x.views / maxTopic * 100);
+    return '<div class="topic-row">' +
+      '<span class="topic-name">' + x.name + '</span>' +
+      '<div class="topic-track"><div class="topic-fill" style="width:' + w + '%"></div></div>' +
+      '<span class="topic-val">' + x.display + '</span>' +
+      '</div>';
+  }).join('');
+
+  // ===== 排播进度 =====
   const full = D.days.filter(x => x.s === 'full');
   const noRev = D.days.filter(x => x.s === 'noreview');
   const only = D.days.filter(x => x.s === 'onlyclip');
@@ -105,19 +168,16 @@
   const totalSec = D.days.reduce((a, b) => a + b.sec, 0);
   const totalCnt = D.days.reduce((a, b) => a + b.n, 0);
 
-  const kpis = [
+  document.getElementById('kpis').innerHTML = [
     { num: D.days.length, label: '展播天数（9.1–9.30）' },
     { num: full.length, label: '完整已审' },
     { num: noRev.length + only.length + empty.length, label: '待补齐 / 未审 / 未传' },
     { num: totalCnt, label: '已传视频总数' },
     { num: hms(totalSec), label: '已传总时长' }
-  ];
-  document.getElementById('kpis').innerHTML = kpis.map(k =>
-    '<div class="kpi"><div class="num">' + k.num + '</div><div class="label">' + k.label + '</div></div>'
-  ).join('');
+  ].map(k => '<div class="kpi"><div class="num">' + k.num + '</div><div class="label">' + k.label + '</div></div>').join('');
 
   const WEEK = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-  const HOLIDAY = { 25: true, 26: true, 27: true };  // 中秋假期 9/25–9/27
+  const HOLIDAY = { 25: true, 26: true, 27: true };
   const statusTxt = { full: '完整已审', noreview: '有片·未审', onlyclip: '仅小片', empty: '未上传' };
 
   function endLabel(x) {
@@ -131,7 +191,6 @@
     return '—';
   }
 
-  // 9月1日 = 周二。星期索引 = N % 7（0=周一…6=周日）；周号 = floor(N/7)（第0周从8/31周一起）
   const byN = {};
   D.days.forEach(x => {
     const m = x.d.match(/(\d+)月(\d+)日/);
@@ -139,15 +198,11 @@
     byN[N] = x;
   });
 
-  // 5 周：N=1..6 第0周，7..13 第1周，14..20 第2周，21..27 第3周，28..30 第4周
   const weeks = [];
   for (let w = 0; w < 5; w++) {
     const row = [];
     for (let col = 0; col < 7; col++) {
-      // 第 w 周第 col 列（col=0周一）对应的 N：
-      // 第0周周一是 8/31（N=0），周二 N=1 … 周日 N=6
-      const N = w * 7 + col;
-      row.push({ N, wd: col });
+      row.push({ N: w * 7 + col, wd: col });
     }
     weeks.push(row);
   }
@@ -155,9 +210,7 @@
   document.getElementById('weeks').innerHTML = weeks.map(row =>
     '<div class="week">' + row.map(function (c) {
       const N = c.N;
-      if (N < 1 || N > 30) {
-        return '<div class="cell blank"></div>';
-      }
+      if (N < 1 || N > 30) return '<div class="cell blank"></div>';
       const x = byN[N];
       if (!x) return '<div class="cell blank"></div>';
       const isHoliday = HOLIDAY[N];
