@@ -96,6 +96,8 @@
   .cell.blank { background: transparent; border: 1px dashed #1e3a6e; opacity: .4; }
 
   .foot { margin-top: 22px; font-size: 12px; color: #6d86ac; }
+  .section .asof { font-size: 12.5px; font-weight: 600; color: #7fa8e0; margin-left: 12px; }
+  .section .asof b { color: #eaf2ff; }
 </style>
 </head>
 <body>
@@ -103,10 +105,10 @@
     <div class="title">2026"科普之光"30天展播仪表盘<span class="en">KEPU LIGHT · 30 DAYS</span></div>
     <div class="updated" id="updated"></div>
   </div>
-  <div class="sub">每天 14:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据</div>
+  <div class="sub" id="sub"></div>
 
   <!-- 播出数据 -->
-  <div class="section">播出数据</div>
+  <div class="section">播出数据 <span class="asof" id="asOfTop"></span></div>
   <div class="total-card" id="totalCard"></div>
   <div class="panel">
     <div class="panel-head">直播在线观看 · 累计 <span class="acc" id="liveTotal"></span></div>
@@ -142,6 +144,8 @@
 
   document.getElementById('updated').innerHTML =
     '排播更新 ' + D.updatedAt + '<br>播出数据 ' + B.asOf;
+  document.getElementById('sub').textContent = '每天 14:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据';
+  document.getElementById('asOfTop').innerHTML = '· 截至 <b>' + B.asOf.replace(/^截至\s*/, '') + '</b>';
 
   function hms(s) {
     const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
@@ -198,7 +202,7 @@
     });
     svg += '</svg>';
     document.getElementById('chart').innerHTML = svg;
-    document.getElementById('chartNote').textContent = '每日直播在线观看人次（万）· ' + B.asOf;
+    document.getElementById('chartNote').textContent = '每日直播在线观看人次（万）';
   })();
 
   const maxTopic = Math.max.apply(null, B.topics.map(x => x.views));
