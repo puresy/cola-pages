@@ -110,7 +110,7 @@
   <div class="sub" id="sub"></div>
 
   <!-- 播出数据 -->
-  <div class="section">播出数据 <span class="asof" id="asOfTop"></span></div>
+  <div class="section">播出数据 <span class="asof" id="asOfTop"></span><span class="updated-at" id="bUpdatedAt"></span></div>
   <div class="total-card" id="totalCard"></div>
   <div class="panel">
     <div class="panel-head">直播在线观看 · 累计 <span class="acc" id="liveTotal"></span></div>
@@ -148,6 +148,7 @@
     '排播更新 ' + D.updatedAt + '<br>播出数据 ' + B.asOf;
   document.getElementById('sub').textContent = '每天 14:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据';
   document.getElementById('asOfTop').innerHTML = '· 截至 <b>' + B.asOf.replace(/^截至\s*/, '') + '</b>';
+  document.getElementById('bUpdatedAt').innerHTML = '　<span style="font-size:12px;color:#7fa8e0;font-weight:400">（数据更新于 ' + B.updatedAt + '）</span>';
 
   function hms(s) {
     const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
