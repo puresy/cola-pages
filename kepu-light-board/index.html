@@ -34,6 +34,8 @@
   .total-card .t-item .t-item-num { font-size: 38px; font-weight: 800; margin-top: 6px; }
   .total-card .t-item.orange .t-item-num { color: #ff9f43; }
   .total-card .t-item.green .t-item-num { color: #2ecc8f; }
+  .total-card .t-item.purple .t-item-num { color: #b48cff; }
+  .total-card .t-item .t-item-num.narrow { font-size: 30px; }
   .total-card .t-right { flex: 0 0 300px; border-left: 1px solid #2b4f8f; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; }
   .total-card .t-right .t-label { font-size: 14px; color: #b9cff2; font-weight: 700; }
   .total-card .t-right .t-num { font-size: 52px; font-weight: 800; color: #e15fbf; margin-top: 4px; }
@@ -157,6 +159,7 @@
     '<div class="t-left">' +
       '<div class="t-item orange"><div class="t-item-label">直播在线观看</div><div class="t-item-num">' + B.totals.live + '</div></div>' +
       '<div class="t-item green"><div class="t-item-label">话题传播</div><div class="t-item-num">' + B.totals.topic + '</div></div>' +
+      '<div class="t-item purple"><div class="t-item-label">公共渠道覆盖</div><div class="t-item-num narrow">' + B.totals.publicChannel + '</div></div>' +
     '</div>' +
     '<div class="t-right"><div class="t-label">新媒体累计总传播量</div><div class="t-num">' + B.totals.media + '</div></div>';
   document.getElementById('liveTotal').textContent = B.totals.live;
