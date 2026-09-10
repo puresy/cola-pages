@@ -1,5 +1,5 @@
 window.BROADCAST_DATA = {
-  updatedAt: "2026-09-09",
+  updatedAt: "2026-09-10",
   asOf: "截至 9月9日 14:00",
   daily: [
     { d: "9月1日", views: 1876.5 },
