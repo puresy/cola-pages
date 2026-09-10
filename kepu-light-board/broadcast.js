@@ -42,6 +42,6 @@ window.BROADCAST_DATA = {
     live: "1亿+",
     topic: "3.48亿",
     publicChannel: "9414万",
-    media: "5.42亿"
+    media: "4.48亿"
   }
 };
