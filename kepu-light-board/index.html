@@ -108,7 +108,6 @@
 <body>
   <div class="head">
     <div class="title">2026"科普之光"30天展播仪表盘<span class="en">KEPU LIGHT · 30 DAYS</span></div>
-    <div class="updated" id="updated"></div>
   </div>
   <div class="sub" id="sub"></div>
 
@@ -126,7 +125,7 @@
   </div>
 
   <!-- 排播进度 -->
-  <div class="section">排播进度（按天）</div>
+  <div class="section">排播进度（按天） <span class="asof">数据更新于 <b id="dUpdatedAt"></b></span></div>
   <div class="kpis" id="kpis"></div>
   <div class="legend">
     <span><i class="dot full"></i>完整已审</span>
@@ -147,8 +146,7 @@
   const D = window.DASHBOARD_DATA;
   const B = window.BROADCAST_DATA;
 
-  document.getElementById('updated').innerHTML =
-    '排播更新 ' + D.updatedAt + '<br>播出数据 ' + B.asOf;
+  document.getElementById('dUpdatedAt').textContent = D.updatedAt;
   document.getElementById('sub').textContent = '每天 14:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据';
   document.getElementById('asOfTop').innerHTML = '· 截至 <b>' + B.asOf.replace(/^截至\s*/, '') + '</b>';
   document.getElementById('bUpdatedAt').innerHTML = '　<span style="font-size:12px;color:#7fa8e0;font-weight:400">（数据更新于 ' + B.updatedAt + '）</span>';
