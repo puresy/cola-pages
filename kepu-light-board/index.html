@@ -28,19 +28,20 @@
 
   /* 播出数据：总览 + 分项卡片 */
   .total-card { background: linear-gradient(135deg, #14305f, #0e2144); border: 1px solid #2b4f8f; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; display: flex; align-items: stretch; gap: 26px; }
-  .total-card .t-left { flex: 1; display: flex; gap: 20px; }
-  .total-card .t-item { flex: 1; background: rgba(255,255,255,0.04); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: center; }
-  .total-card .t-item .t-item-label { font-size: 13px; color: #9db8e6; }
-  .total-card .t-item .t-item-num { font-size: 38px; font-weight: 800; margin-top: 6px; }
-  .total-card .t-item.orange .t-item-num { color: #ff9f43; }
-  .total-card .t-item.green .t-item-num { color: #2ecc8f; }
-  .total-card .t-item.purple .t-item-num { color: #b48cff; }
-  .total-card .t-item .t-item-num.narrow { font-size: 30px; }
-  .total-card .t-right { flex: 0 0 300px; border-left: 1px solid #2b4f8f; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+  .total-card .t-left { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .total-card .t-left .t-label { font-size: 14px; color: #b9cff2; font-weight: 700; }
+  .total-card .t-left .t-num { font-size: 52px; font-weight: 800; color: #e15fbf; line-height: 1.1; }
+  .total-card .t-left .t-eq { margin-top: 14px; padding-top: 12px; border-top: 1px solid #2b4f8f; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .total-card .t-left .t-eq .addend { display: flex; align-items: baseline; gap: 6px; }
+  .total-card .t-left .t-eq .addend .al { font-size: 12px; color: #9db8e6; }
+  .total-card .t-left .t-eq .addend .av { font-size: 24px; font-weight: 800; }
+  .total-card .t-left .t-eq .av.orange { color: #ff9f43; }
+  .total-card .t-left .t-eq .av.green { color: #2ecc8f; }
+  .total-card .t-left .t-eq .op { font-size: 22px; color: #7fa8e0; font-weight: 700; }
+  .total-card .t-right { flex: 0 0 260px; border-left: 1px solid #2b4f8f; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; }
   .total-card .t-right .t-label { font-size: 14px; color: #b9cff2; font-weight: 700; }
-  .total-card .t-right .t-num { font-size: 44px; font-weight: 800; color: #e15fbf; margin-top: 2px; }
-  .total-card .t-right .t-num.purple { color: #b48cff; }
-  .total-card .t-right .t-pub-sep { border-top: 1px dashed #2b4f8f; }
+  .total-card .t-right .t-num { font-size: 44px; font-weight: 800; color: #b48cff; margin-top: 4px; }
+  .total-card .t-right .t-sub { font-size: 12px; color: #7fa8e0; margin-top: 8px; }
 
   .panel { background: #12264d; border: 1px solid #1e3a6e; border-radius: 12px; padding: 16px 20px 12px; margin-bottom: 14px; }
   .panel-head { font-size: 15px; font-weight: 700; color: #eaf2ff; margin-bottom: 12px; }
@@ -160,12 +161,18 @@
   // ===== 播出数据 =====
   document.getElementById('totalCard').innerHTML =
     '<div class="t-left">' +
-      '<div class="t-item orange"><div class="t-item-label">直播在线观看</div><div class="t-item-num">' + B.totals.live + '</div></div>' +
-      '<div class="t-item green"><div class="t-item-label">话题传播</div><div class="t-item-num">' + B.totals.topic + '</div></div>' +
+      '<div class="t-label">新媒体累计总传播量</div>' +
+      '<div class="t-num">' + B.totals.media + '</div>' +
+      '<div class="t-eq">' +
+        '<span class="addend"><span class="al">直播在线观看</span><span class="av orange">' + B.totals.live + '</span></span>' +
+        '<span class="op">+</span>' +
+        '<span class="addend"><span class="al">话题传播</span><span class="av green">' + B.totals.topic + '</span></span>' +
+      '</div>' +
     '</div>' +
     '<div class="t-right">' +
-      '<div><div class="t-label">新媒体累计总传播量</div><div class="t-num">' + B.totals.media + '</div></div>' +
-      (B.totals.publicChannel ? '<div class="t-pub-sep"></div><div><div class="t-label">公共渠道覆盖</div><div class="t-num purple">' + B.totals.publicChannel + '</div></div>' : '') +
+      '<div class="t-label">公共渠道覆盖</div>' +
+      '<div class="t-num">' + (B.totals.publicChannel || '') + '</div>' +
+      '<div class="t-sub">独立口径，不折入新媒体传播量</div>' +
     '</div>';
   document.getElementById('liveTotal').textContent = B.totals.live;
   document.getElementById('topicTotal').textContent = B.totals.topic;
