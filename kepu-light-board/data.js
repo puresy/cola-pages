@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-11 15:38",
+  "updatedAt": "2026-09-12 12:02",
   "days": [
     {
       "d": "9月1日",
@@ -116,9 +116,9 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月17日",
       "t": "赣天揽胜（江西）",
-      "s": "onlyclip",
-      "n": 1,
-      "sec": 50
+      "s": "noreview",
+      "n": 5,
+      "sec": 26174
     },
     {
       "d": "9月18日",
