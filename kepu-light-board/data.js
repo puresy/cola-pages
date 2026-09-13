@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-12 12:02",
+  "updatedAt": "2026-09-13 12:00",
   "days": [
     {
       "d": "9月1日",
