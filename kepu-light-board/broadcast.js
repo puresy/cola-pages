@@ -1,6 +1,6 @@
 window.BROADCAST_DATA = {
-  updatedAt: "2026-09-11",
-  asOf: "截至 9月11日 14:00",
+  updatedAt: "2026-09-14",
+  asOf: "截至 9月13日 14:00",
   daily: [
     { d: "9月1日", views: 1876.5 },
     { d: "9月2日", views: 1027.1 },
@@ -11,9 +11,9 @@ window.BROADCAST_DATA = {
     { d: "9月7日", views: 1070.2 },
     { d: "9月8日", views: 1633.7 },
     { d: "9月9日", views: 807.1 },
-    { d: "9月10日", views: 1541.6 },
-    { d: "9月11日", views: null },
-    { d: "9月12日", views: null },
+    { d: "9月10日", views: 1541.8 },
+    { d: "9月11日", views: 601.1 },
+    { d: "9月12日", views: 1118 },
     { d: "9月13日", views: null },
     { d: "9月14日", views: null },
     { d: "9月15日", views: null },
@@ -34,14 +34,14 @@ window.BROADCAST_DATA = {
     { d: "9月30日", views: null }
   ],
   topics: [
-    { name: "#科普之光#", views: 12000, display: "1.2亿" },
-    { name: "#全国科普月#", views: 23000, display: "2.3亿" },
-    { name: "#千万IP创科普#", views: 7224.5, display: "7224.5万" }
+    { name: "#科普之光#", views: 13000, display: "1.3亿" },
+    { name: "#全国科普月#", views: 25000, display: "2.5亿" },
+    { name: "#千万IP创科普#", views: 8669.3, display: "8669.3万" }
   ],
   totals: {
-    live: "1.24亿+",
-    topic: "4.22亿",
+    live: "1.41亿+",
+    topic: "4.66亿",
     publicChannel: "9414万",
-    media: "5.46亿"
+    media: "6.07亿"
   }
 };
