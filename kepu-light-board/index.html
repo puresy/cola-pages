@@ -136,7 +136,7 @@
     <span><i class="dot noreview"></i>有片未审</span>
     <span><i class="dot onlyclip"></i>仅小片</span>
     <span><i class="dot empty"></i>未上传</span>
-    <span class="holiday">🏮 中秋假期 9/25–9/27</span>
+    <span class="holiday">🏮 中秋假期 9月25日</span>
   </div>
   <div class="weekhead">
     <div>周一</div><div>周二</div><div>周三</div><div>周四</div><div>周五</div><div>周六</div><div>周日</div>
@@ -253,7 +253,7 @@
   ].map(k => '<div class="kpi"><div class="num">' + k.num + '</div><div class="label">' + k.label + '</div></div>').join('');
 
   const WEEK = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-  const HOLIDAY = { 25: true, 26: true, 27: true };
+  const HOLIDAY = { 25: true };
   const statusTxt = { full: '完整已审', noreview: '有片·未审', onlyclip: '仅小片', empty: '未上传' };
 
   function endLabel(x) {
