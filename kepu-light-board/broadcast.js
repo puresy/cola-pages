@@ -41,7 +41,11 @@ window.BROADCAST_DATA = {
   totals: {
     live: "1.41亿+",
     topic: "4.66亿",
-    publicChannel: "9414万",
+    publicChannel: "4.08亿",
+    publicChannelBreakdown: [
+      { tag: "展播精选视频", text: "在吉林、山西、天津、甘肃、河北等 19 个省市电视台及 IPTV 广电渠道形成资源专题持续播出，覆盖超 3.23亿 家庭用户" },
+      { tag: "创意短片", text: "在江西、甘肃等 15 家地方科技馆及全国约 4700 个楼宇电视、户外大屏、公交电视等线下媒介终端播出，覆盖人群超 8488万 人次，持续营造良好的观看氛围" }
+    ],
     media: "6.07亿"
   }
 };
