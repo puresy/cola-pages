@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-14 12:03",
+  "updatedAt": "2026-09-14 17:48",
   "days": [
     {
       "d": "9月1日",
@@ -111,7 +111,7 @@ window.DASHBOARD_DATA = {
       "t": "特别主题日：守护苍穹",
       "s": "full",
       "n": 5,
-      "sec": 21814
+      "sec": 21785
     },
     {
       "d": "9月17日",
@@ -130,9 +130,9 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月19日",
       "t": "特别主题日：智慧康养",
-      "s": "onlyclip",
-      "n": 1,
-      "sec": 47
+      "s": "noreview",
+      "n": 5,
+      "sec": 23657
     },
     {
       "d": "9月20日",
@@ -164,10 +164,10 @@ window.DASHBOARD_DATA = {
     },
     {
       "d": "9月24日",
-      "t": "特别主题日：器以载道",
-      "s": "onlyclip",
-      "n": 1,
-      "sec": 46
+      "t": "特别主题日：求真辨伪",
+      "s": "empty",
+      "n": 0,
+      "sec": 0
     },
     {
       "d": "9月25日",
@@ -178,7 +178,7 @@ window.DASHBOARD_DATA = {
     },
     {
       "d": "9月26日",
-      "t": "特别主题日：求真辨伪",
+      "t": "特别主题日：器以载道",
       "s": "empty",
       "n": 0,
       "sec": 0
