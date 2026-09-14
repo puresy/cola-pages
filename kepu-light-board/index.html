@@ -27,7 +27,12 @@
   .kpi .label { font-size: 12.5px; color: #9db8e6; margin-top: 5px; }
 
   /* 播出数据：总览 + 分项卡片 */
-  .total-card { background: linear-gradient(135deg, #14305f, #0e2144); border: 1px solid #2b4f8f; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; display: flex; align-items: stretch; gap: 26px; }
+  .total-card { background: linear-gradient(135deg, #14305f, #0e2144); border: 1px solid #2b4f8f; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; }
+  .total-card .t-main { display: flex; align-items: stretch; gap: 26px; }
+  .total-card .t-bd { margin-top: 18px; padding-top: 14px; border-top: 1px solid #2b4f8f; }
+  .total-card .t-bd-head { font-size: 12px; color: #7fa8e0; font-weight: 700; margin-bottom: 7px; letter-spacing: .5px; }
+  .total-card .t-bd-item { font-size: 11.5px; color: #9db8e6; line-height: 1.8; }
+  .total-card .t-bd-tag { color: #b48cff; font-weight: 700; margin-right: 7px; }
   .total-card .t-left { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .total-card .t-left .t-label { font-size: 14px; color: #b9cff2; font-weight: 700; }
   .total-card .t-left .t-num { font-size: 52px; font-weight: 800; color: #e15fbf; line-height: 1.1; }
@@ -157,7 +162,11 @@
   }
 
   // ===== 播出数据 =====
+  const pcBd = (B.totals.publicChannelBreakdown || []).map(function (x) {
+    return '<div class="t-bd-item"><span class="t-bd-tag">' + x.tag + '</span>' + x.text + '</div>';
+  }).join('');
   document.getElementById('totalCard').innerHTML =
+    '<div class="t-main">' +
     '<div class="t-left">' +
       '<div class="t-label">新媒体累计总传播量</div>' +
       '<div class="t-num">' + B.totals.media + '</div>' +
@@ -171,7 +180,9 @@
       '<div class="t-label">公共渠道覆盖</div>' +
       '<div class="t-num">' + (B.totals.publicChannel || '') + '</div>' +
       '<div class="t-sub">独立口径，不折入新媒体传播量</div>' +
-    '</div>';
+    '</div>' +
+    '</div>' +
+    (pcBd ? '<div class="t-bd"><div class="t-bd-head">公共渠道覆盖 · 拆分说明</div>' + pcBd + '</div>' : '');
   document.getElementById('liveTotal').textContent = B.totals.live;
   document.getElementById('topicTotal').textContent = B.totals.topic;
 
