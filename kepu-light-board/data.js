@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-14 17:48",
+  "updatedAt": "2026-09-15 12:04",
   "days": [
     {
       "d": "9月1日",
@@ -123,9 +123,9 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月18日",
       "t": "南疆海韵（广西+海南）",
-      "s": "noreview",
+      "s": "full",
       "n": 5,
-      "sec": 22950
+      "sec": 22823
     },
     {
       "d": "9月19日",
