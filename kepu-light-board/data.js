@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-15 12:04",
+  "updatedAt": "2026-09-15 15:48",
   "days": [
     {
       "d": "9月1日",
@@ -83,7 +83,7 @@ window.DASHBOARD_DATA = {
       "t": "塞上算谷（宁夏+内蒙古）",
       "s": "full",
       "n": 5,
-      "sec": 22833
+      "sec": 21491
     },
     {
       "d": "9月13日",
@@ -137,9 +137,9 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月20日",
       "t": "西南秘境（贵州+云南+西藏）",
-      "s": "onlyclip",
-      "n": 1,
-      "sec": 48
+      "s": "noreview",
+      "n": 5,
+      "sec": 23696
     },
     {
       "d": "9月21日",
@@ -151,16 +151,16 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月22日",
       "t": "特别主题日：低碳新程",
-      "s": "empty",
-      "n": 0,
-      "sec": 0
+      "s": "onlyclip",
+      "n": 1,
+      "sec": 48
     },
     {
       "d": "9月23日",
       "t": "特别主题日：耕织兴邦",
-      "s": "empty",
-      "n": 0,
-      "sec": 0
+      "s": "onlyclip",
+      "n": 1,
+      "sec": 44
     },
     {
       "d": "9月24日",
@@ -172,9 +172,9 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月25日",
       "t": "闽粤向海（广东+福建）",
-      "s": "empty",
-      "n": 0,
-      "sec": 0
+      "s": "onlyclip",
+      "n": 1,
+      "sec": 49
     },
     {
       "d": "9月26日",
