@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-15 15:48",
+  "updatedAt": "2026-09-15 16:59",
   "days": [
     {
       "d": "9月1日",
@@ -130,7 +130,7 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月19日",
       "t": "特别主题日：智慧康养",
-      "s": "noreview",
+      "s": "full",
       "n": 5,
       "sec": 23657
     },
@@ -165,9 +165,9 @@ window.DASHBOARD_DATA = {
     {
       "d": "9月24日",
       "t": "特别主题日：求真辨伪",
-      "s": "empty",
-      "n": 0,
-      "sec": 0
+      "s": "onlyclip",
+      "n": 1,
+      "sec": 44
     },
     {
       "d": "9月25日",
