@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-17 14:40",
+  "updatedAt": "2026-09-17 17:05",
   "days": [
     {
       "d": "9月1日",
@@ -139,7 +139,7 @@ window.DASHBOARD_DATA = {
       "t": "西南秘境（贵州+云南+西藏）",
       "s": "noreview",
       "n": 5,
-      "sec": 22885
+      "sec": 22434
     },
     {
       "d": "9月21日",
