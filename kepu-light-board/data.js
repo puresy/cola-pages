@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  "updatedAt": "2026-09-17 17:26",
+  "updatedAt": "2026-09-18 12:01",
   "days": [
     {
       "d": "9月1日",
@@ -82,8 +82,8 @@ window.DASHBOARD_DATA = {
       "d": "9月12日",
       "t": "塞上算谷（宁夏+内蒙古）",
       "s": "full",
-      "n": 5,
-      "sec": 21683
+      "n": 6,
+      "sec": 43175
     },
     {
       "d": "9月13日",
