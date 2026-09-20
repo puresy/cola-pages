@@ -87,6 +87,11 @@
   .cell .dur { font-size: 16px; font-weight: 800; }
   .cell .end { font-size: 11px; color: #9db8e6; margin-top: 2px; }
   .cell .cnt { font-size: 10.5px; color: #9db8e6; margin-top: 3px; }
+  .cell .gap-tag {
+    display: inline-block; margin-left: 5px; background: #b3541e; color: #ffddc2;
+    font-size: 10px; font-weight: 700; padding: 0 5px; border-radius: 3px;
+    border: 1px solid #d9743a; letter-spacing: .5px;
+  }
 
   .cell.full { border-left: 4px solid #2ecc8f; }
   .cell.full .dur { color: #2ecc8f; }
@@ -255,6 +260,10 @@
   const WEEK = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
   const HOLIDAY = { 25: true };
   const statusTxt = { full: '完整已审', noreview: '有片·未审', onlyclip: '仅小片', empty: '未上传' };
+  // 缺条标注：网盘当天文件夹内为占位空文件夹、成片未到
+  const GAP = {
+    23: { txt: '缺 1 条', tip: '0923-01-2.寻初心 科普中国说专场 待链接（占位空文件夹，成片未到）' }
+  };
 
   function endLabel(x) {
     if (x.s === 'full' || x.s === 'noreview') {
@@ -296,7 +305,8 @@
         '<div class="t">' + x.t + '</div>' +
         '<div class="dur">' + (x.sec > 0 ? hms(x.sec) : '—') + '</div>' +
         '<div class="end">' + endLabel(x) + '</div>' +
-        '<div class="cnt">' + (x.n > 0 ? x.n + ' 个 · ' : '') + statusTxt[x.s] + '</div>' +
+        '<div class="cnt">' + (x.n > 0 ? x.n + ' 个 · ' : '') + statusTxt[x.s] +
+          (GAP[N] ? '<span class="gap-tag" title="' + GAP[N].tip + '">' + GAP[N].txt + '</span>' : '') + '</div>' +
         '</div>';
     }).join('') + '</div>'
   ).join('');
