@@ -183,6 +183,7 @@
     '<div class="t-right">' +
       '<div class="t-label">公共渠道覆盖</div>' +
       '<div class="t-num">' + (B.totals.publicChannel || '') + '</div>' +
+      (B.totals.publicChannelAsOf ? '<div style="font-size:11.5px;color:#7fa8e0;margin-top:3px">' + B.totals.publicChannelAsOf + '</div>' : '') +
       (pcBd ? '<div class="t-bd">' + pcBd + '</div>' : '') +
     '</div>';
   document.getElementById('liveTotal').textContent = B.totals.live;
