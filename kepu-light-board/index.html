@@ -156,7 +156,7 @@
   const B = window.BROADCAST_DATA;
 
   document.getElementById('dUpdatedAt').textContent = D.updatedAt;
-  document.getElementById('sub').textContent = '每天 14:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据';
+  document.getElementById('sub').textContent = '9月1–23日 14:00 开播 · 9月24日起 10:00 开播 · 数据源：百度网盘成片时长 + 直播方播出数据';
   document.getElementById('asOfTop').innerHTML = '· 截至 <b>' + B.asOf.replace(/^截至\s*/, '') + '</b>';
   document.getElementById('bUpdatedAt').innerHTML = '　<span style="font-size:12px;color:#7fa8e0;font-weight:400">（数据更新于 ' + B.updatedAt + '）</span>';
 
@@ -265,9 +265,15 @@
     23: { txt: '缺 1 条', tip: '0923-01-2.寻初心 科普中国说专场 待链接（占位空文件夹，成片未到）' }
   };
 
+  // 开播时间：9月24日起改早上 10:00（10:00–30日）
+  const START_HOUR = function (x) {
+    const m = x.d.match(/9月(\d+)日/);
+    const N = m ? parseInt(m[1]) : 0;
+    return N >= 24 ? 10 : 14;
+  };
   function endLabel(x) {
     if (x.s === 'full' || x.s === 'noreview') {
-      const total = 14 * 3600 + x.sec;
+      const total = START_HOUR(x) * 3600 + x.sec;
       const h = Math.floor(total / 3600) % 24;
       const m = Math.floor((total % 3600) / 60);
       return '预计 ' + String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ' 结束';
