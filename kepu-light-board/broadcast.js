@@ -1,6 +1,6 @@
 window.BROADCAST_DATA = {
-  updatedAt: "2026-09-22",
-  asOf: "截至 9月20日",
+  updatedAt: "2026-09-23",
+  asOf: "截至 9月22日",
   daily: [
     { d: "9月1日", views: 1876.5 },
     { d: "9月2日", views: 1027.1 },
@@ -15,15 +15,15 @@ window.BROADCAST_DATA = {
     { d: "9月11日", views: 852.1 },
     { d: "9月12日", views: 1118.3 },
     { d: "9月13日", views: 835.0 },
-    { d: "9月14日", views: 782.8 },
+    { d: "9月14日", views: 1213.4 },
     { d: "9月15日", views: 1016.2 },
     { d: "9月16日", views: 776.4 },
     { d: "9月17日", views: 1197.4 },
     { d: "9月18日", views: 905.1 },
     { d: "9月19日", views: 1080.3 },
-    { d: "9月20日", views: 646.2 },
-    { d: "9月21日", views: null },
-    { d: "9月22日", views: null },
+    { d: "9月20日", views: 724.6 },
+    { d: "9月21日", views: 698.9 },
+    { d: "9月22日", views: 1153.5 },
     { d: "9月23日", views: null },
     { d: "9月24日", views: null },
     { d: "9月25日", views: null },
@@ -34,19 +34,19 @@ window.BROADCAST_DATA = {
     { d: "9月30日", views: null }
   ],
   topics: [
-    { name: "#科普之光#", views: 22000, display: "2.2亿" },
-    { name: "#全国科普月#", views: 39000, display: "3.9亿" },
-    { name: "#千万IP创科普#", views: 15000, display: "1.5亿" }
+    { name: "#科普之光#", views: 24000, display: "2.4亿" },
+    { name: "#全国科普月#", views: 43000, display: "4.3亿" },
+    { name: "#千万IP创科普#", views: 17000, display: "1.7亿" }
   ],
   totals: {
-    live: "2.16亿+",
-    topic: "7.6亿",
+    live: "2.39亿+",
+    topic: "8.4亿",
     publicChannel: "4.67亿",
     publicChannelAsOf: "截至 9月22日",
     publicChannelBreakdown: [
       { tag: "展播精选视频", pre: "在江苏、海南、广东、广西、内蒙古等 19 个省市电视台及 IPTV 广电渠道形成资源专题持续播出，覆盖超 ", num: "3.71亿", post: " 家庭用户" },
       { tag: "创意短片", pre: "在江西、甘肃、海南等 27 家地方科技馆及全国约 4700 个楼宇电视、户外大屏、公交电视等线下媒介终端播出，覆盖人群超 ", num: "9635万", post: " 人次，持续营造良好的观看氛围" }
     ],
-    media: "9.76亿"
+    media: "10.79亿"
   }
 };
