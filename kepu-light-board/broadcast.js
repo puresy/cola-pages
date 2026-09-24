@@ -1,6 +1,6 @@
 window.BROADCAST_DATA = {
-  updatedAt: "2026-09-23",
-  asOf: "截至 9月22日",
+  updatedAt: "2026-09-24",
+  asOf: "截至 9月24日14点",
   daily: [
     { d: "9月1日", views: 1876.5 },
     { d: "9月2日", views: 1027.1 },
@@ -23,8 +23,8 @@ window.BROADCAST_DATA = {
     { d: "9月19日", views: 1080.3 },
     { d: "9月20日", views: 724.6 },
     { d: "9月21日", views: 698.9 },
-    { d: "9月22日", views: 1153.5 },
-    { d: "9月23日", views: null },
+    { d: "9月22日", views: 1260.6 },
+    { d: "9月23日", views: 1389.3 },
     { d: "9月24日", views: null },
     { d: "9月25日", views: null },
     { d: "9月26日", views: null },
@@ -34,19 +34,19 @@ window.BROADCAST_DATA = {
     { d: "9月30日", views: null }
   ],
   topics: [
-    { name: "#科普之光#", views: 24000, display: "2.4亿" },
-    { name: "#全国科普月#", views: 43000, display: "4.3亿" },
-    { name: "#千万IP创科普#", views: 17000, display: "1.7亿" }
+    { name: "#科普之光#", views: 26000, display: "2.6亿" },
+    { name: "#全国科普月#", views: 45000, display: "4.5亿" },
+    { name: "#千万IP创科普#", views: 18000, display: "1.8亿" }
   ],
   totals: {
-    live: "2.39亿+",
-    topic: "8.4亿",
+    live: "2.54亿+",
+    topic: "8.9亿",
     publicChannel: "4.67亿",
     publicChannelAsOf: "截至 9月22日",
     publicChannelBreakdown: [
       { tag: "展播精选视频", pre: "在江苏、海南、广东、广西、内蒙古等 19 个省市电视台及 IPTV 广电渠道形成资源专题持续播出，覆盖超 ", num: "3.71亿", post: " 家庭用户" },
       { tag: "创意短片", pre: "在江西、甘肃、海南等 27 家地方科技馆及全国约 4700 个楼宇电视、户外大屏、公交电视等线下媒介终端播出，覆盖人群超 ", num: "9635万", post: " 人次，持续营造良好的观看氛围" }
     ],
-    media: "10.79亿"
+    media: "11.44亿"
   }
 };
