@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
-  updatedAt: "2026-09-27 16:48",
+  updatedAt: "2026-09-28 12:00",
   days: [
     { d: "9月1日", t: "特别主题日：我们爱科学", s: "full", n: 7, sec: 25716 },
     { d: "9月2日", t: "京津智核（北京+天津）", s: "full", n: 6, sec: 26685 },
